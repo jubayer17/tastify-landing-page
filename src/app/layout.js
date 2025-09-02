@@ -1,6 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+// Import Poppins locally via @fontsource
+import "@fontsource/poppins/400.css"; // regular
+import "@fontsource/poppins/600.css"; // semi-bold
+import "@fontsource/poppins/700.css"; // bold
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -10,6 +15,12 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+// Optional: define Poppins variable for easier use
+const poppins = {
+  variable: "--font-poppins",
+  className: "font-poppins",
+};
 
 export const metadata = {
   title: "Create Next App",
@@ -21,6 +32,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ fontFamily: "Poppins, sans-serif" }} // <-- Apply Poppins globally
       >
         {children}
       </body>
